@@ -6,7 +6,7 @@ La consulta se ha realizado en [Pccomponentes](https://www.pccomponentes.com/ser
 
 ![imagen](img/t1/ej1server.png)
 
-Para calcular el coste de amortización he seleccioado el precio sin IVA: 1057,02€.
+Para calcular el coste de amortización he seleccionado el precio sin IVA: 1057,02€.
 
 1057,02 / (4*12) = 22,02€  
 1057,02 / (7*12) = 12,58€
@@ -16,3 +16,23 @@ Por tanto,
 el coste de amortización mensual a 4 años es de __22,02€__.  
 El coste de amortización mensual a 7 años es de __12,58€__.
 
+### Ejercicio 2
+
+La empresa OVH proporciona servidores dedicados físicos, el plan básico cuesta 56,99€ y proporciona un procesador  Intel Xeon E3-1230v6 con 4 núcleos y 8 hebras.
+
+![imagen](img/t1/ej2ovh.png)
+
+El precio por año de este servicio es: __683,88€__
+
+Para la alternativa cloud, he decidido escoger los servicios de Amazon AWS, los cuales proporcionan servicio de propósito general en la nube con 4 núcleos y 8 hebras llamado t3.2xlarge.
+Al tratarse de un servicio por horas el cálculo del coste no es directo.
+Si la infraestructura comprada se utiliza un 1% del tiempo y 1 año se compone de 8760 horas, el servicio se utilizaría 88 horas (recordar que se paga por horas, los decimales suman 1 hora extra). Si el servicio cuesta 0,34€ la hora, el coste por año sería __29,58€__.
+
+Si la infraestructura comprada se utiliza un 10% d el tiempo, el servicio utilizaría 876 horas y por tanto su coste anual sería __297,84€__ al año.
+
+| tipo \% de uso      |   1%    |   10%   |   50%   |
+| ------------------- |:-------:| -------:| -------:|
+| Servidor físico     | 683,88€ | 683,88€ | 683,88€ |
+| Servidor en la nube | 29,58€  | 297,84€ | 1489,2€ |
+
+Claramente si el servidor no tiene una carga importante de trabajo el servicio en la nube es mucho más rentable.
