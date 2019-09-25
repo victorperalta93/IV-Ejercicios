@@ -36,3 +36,10 @@ Si la infraestructura comprada se utiliza un 10% d el tiempo, el servicio utiliz
 | Servidor en la nube | 29,58€  | 297,84€ | 1489,2€ |
 
 Claramente si el servidor no tiene una carga importante de trabajo el servicio en la nube es mucho más rentable.
+
+#### Ejercicio 3
+El comando egrep `'^flags.*(vmx|svm)'` /proc/cpuinfo me muestra los flags, por tanto mi CPU tiene la virtualización hardware activada, el modelo es: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz.
+En la salida de la orden aparecen todos los flags activados de mi CPU (vmx siendo uno de ellos) y lo lista 8 veces, debido a que tengo 8 vCPU's.
+En una máquina virtual el comando no devuelve nada, aunque VirtualBox está trabajando para poder ofrecer virtualización anidada (_Nested Virtualization_) en un futuro.
+
+### Ejercicio 4
