@@ -1,6 +1,7 @@
-# Ejercicios Tema 1: Introducción a la infraestructura virtual: concepto y soporte físico
+# Ejercicios Tema 1
+## Introducción a la infraestructura virtual: concepto y soporte físico
 
-## Ejercicio 1
+### Ejercicio 1
 La consulta se ha realizado en [Pccomponentes](https://www.pccomponentes.com/servidor-hp-proliant-ml110-gen10-intel-xeon-3106-16gb).
 
 ![imagen](img/t1/ej1server.png)
