@@ -38,8 +38,31 @@ Si la infraestructura comprada se utiliza un 10% d el tiempo, el servicio utiliz
 Claramente si el servidor no tiene una carga importante de trabajo el servicio en la nube es mucho más rentable.
 
 #### Ejercicio 3
-El comando egrep `'^flags.*(vmx|svm)'` /proc/cpuinfo me muestra los flags, por tanto mi CPU tiene la virtualización hardware activada, el modelo es: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz.
-En la salida de la orden aparecen todos los flags activados de mi CPU (vmx siendo uno de ellos) y lo lista 8 veces, debido a que tengo 8 vCPU's.
+El comando egrep `'^flags.*(vmx|svm)'` /proc/cpuinfo me muestra los flags, por tanto mi CPU tiene la virtualización hardware activada, el modelo es: Intel(R) Core(TM) i7-6700HQ CPU @ 2.60GHz.\
+En la salida de la orden aparecen todos los flags activados de mi CPU (vmx siendo uno de ellos) y lo lista 8 veces, debido a que tengo 8 vCPU's.\
 En una máquina virtual el comando no devuelve nada, aunque VirtualBox está trabajando para poder ofrecer virtualización anidada (_Nested Virtualization_) en un futuro.
 
 ### Ejercicio 4
+mediante la orden `LC_ALL=C lscpu | grep Virtualization` he comprobado que mi procesador posee la aceleración hardware necesaria:\
+`Virtualization:      VT-x`
+
+He instalado KVM en mi distribución de linux (Fedora 64bits).\
+Para comprobar que se ha instalado correctamente se puede ejecutar la siguiente orden que muestra si el módulo del kernel está cargado:
+
+```bash
+~ lsmod | grep kvm
+kvm_intel             299008  0
+kvm                   749568  1 kvm_intel
+irqbypass              16384  1 kvm
+```
+
+### Ejercicio 5
+Me he dado de alta en el servicio de Microsoft Azure, donde regalan 100€ en créditos para nuevos usuarios estudiantes.
+
+![imagen](img/t1/ej5azure.png)
+
+### Ejercicio 6
+
+Me he creado una cuenta en [openstack](https://www.openstack.org/).
+
+![imagen](img/t1/ej6.png)
