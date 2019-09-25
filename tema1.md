@@ -22,7 +22,7 @@ La empresa OVH proporciona servidores dedicados físicos, el plan básico cuesta
 
 ![imagen](img/t1/ej2ovh.png)
 
-El precio por año de este servicio es: __683,88€__
+El precio por año de este servicio es: 683,88€ + IVA = __827.49€__
 
 Para la alternativa cloud, he decidido escoger los servicios de Amazon AWS, los cuales proporcionan servicio de propósito general en la nube con 4 núcleos y 8 hebras llamado t3.2xlarge.
 Al tratarse de un servicio por horas el cálculo del coste no es directo.
@@ -32,7 +32,7 @@ Si la infraestructura comprada se utiliza un 10% d el tiempo, el servicio utiliz
 
 | tipo \% de uso      |   1%    |   10%   |   50%   |
 | ------------------- |:-------:| -------:| -------:|
-| Servidor físico     | 683,88€ | 683,88€ | 683,88€ |
+| Servidor físico     | 827.49€ | 827.49€ | 827.49€ |
 | Servidor en la nube | 29,58€  | 297,84€ | 1489,2€ |
 
 Claramente si el servidor no tiene una carga importante de trabajo el servicio en la nube es mucho más rentable.
