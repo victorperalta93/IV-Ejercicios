@@ -112,3 +112,50 @@ Finished in 0.0014 seconds (files took 0.07683 seconds to load)
 ```
 
 Todo el código de este ejercicio se puede ver [aquí](https://github.com/victorperalta93/IV-Ejercicios/blob/master/t2/ejercicio3)
+
+### Ejercicio 4 
+Una vez instalado nvm, podemos ejecutar `nvm ls-remote` en la linea de comandos para ver todas las versiones disponibles.
+La última versión es la `v12.11.1` a día 9 de Octubre de 2019. Para instarlarla, basta con ejecutar: `nvm install v12.11.1`, lo cual genera la siguiente salida:
+
+```
+Downloading and installing node v12.11.1...
+Downloading https://nodejs.org/dist/v12.11.1/node-v12.11.1-linux-x64.tar.xz...
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v12.11.1 (npm v6.11.3)
+Creating default alias: default -> v12.11.1
+```
+
+Para instalar la versión v4.9.1, basta con ejecutar `nvm install v4.9.1`:
+
+```
+Downloading and installing node v4.9.1...
+Downloading https://nodejs.org/dist/v4.9.1/node-v4.9.1-linux-x64.tar.xz...
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v4.9.1 (npm v2.15.11)
+```
+
+Para probar esta funcionalidad, he decidido utilizar el método `hasColors` de `WriteStream` para la terminal de texto (tty). Este método fue [añadido](https://nodejs.org/es/blog/release/v11.13.0/) a la versión v11.13.0. Por tanto si lo ejecuto con una versión igual o superior debería funcionar.
+
+Ejecuto `nvm use v12.11.1` para cambiar a dicha versión y `node ttycolors.js` para ejecutar mi programa, lo que devuelve:
+```
+true
+```
+Si cambio a la versión v4.9.1 con `nvm use v4.9.1` obtengo la siguiente salida:
+
+```
+console.log(process.stdout.hasColors());
+                           ^
+
+TypeError: process.stdout.hasColors is not a function
+    at Object.<anonymous> (ttycolors.js:4:28)
+    at Module._compile (module.js:409:26)
+    at Object.Module._extensions..js (module.js:416:10)
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+    at Function.Module.runMain (module.js:441:10)
+    at startup (node.js:140:18)
+    at node.js:1043:3
+```
+Indicando que la función no existe!

@@ -1,0 +1,15 @@
+{
+  "name": "ejercicio4",
+  "version": "1.0.0",
+  "description": "pequeño programa para probar distintas versiones de node con nvm",
+  "main": "http2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Victor Peralta",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "spdy": "^4.0.1"
+  }
+}
