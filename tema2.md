@@ -195,3 +195,8 @@ getAll(callback){
     });
 }
 ```
+Por último, Postman nos muestra el resultado: 
+
+![imagen](img/t2/postman2.png)
+
+El resto de peticiones se tratan de forma similar, para ver el código completo dirígete a su [repositorio](https://github.com/victorperalta93/califica-empresas).
