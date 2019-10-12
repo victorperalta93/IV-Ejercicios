@@ -1,7 +1,7 @@
 # Ejercicios Tema 2
 ## Desarrollo basado en pruebas
 
-### Ejercicio 3
+## Ejercicio 3
 He creado tests para Ruby con RSpec, en concreto para comprobar el resultado de una función que calcula el máximo común divisor mediante el algoritmo de Euclides. 
 
 Como dicta el desarrollo basado en pruebas, lo primero es realizar los tests que queremos aplicar:
@@ -113,7 +113,7 @@ Finished in 0.0014 seconds (files took 0.07683 seconds to load)
 
 Todo el código de este ejercicio se puede ver [aquí](https://github.com/victorperalta93/IV-Ejercicios/blob/master/t2/ejercicio3)
 
-### Ejercicio 4 
+## Ejercicio 4 
 Una vez instalado nvm, podemos ejecutar `nvm ls-remote` en la linea de comandos para ver todas las versiones disponibles.
 La última versión es la `v12.11.1` a día 9 de Octubre de 2019. Para instarlarla, basta con ejecutar: `nvm install v12.11.1`, lo cual genera la siguiente salida:
 
@@ -159,3 +159,39 @@ TypeError: process.stdout.hasColors is not a function
     at node.js:1043:3
 ```
 Indicando que la función no existe!
+
+## Ejercicio 5
+
+He desarrollado la aplicación en node.js con express.js como microframework y sqlite3 para la base de datos. Así me sirve para una toma de contacto de cara a mi proyecto de la asignatura.
+He creado un repositorio nuevo ya que se pretende utilizar el mismo ejemplo para temas posteriores, lo puedes encontrar [aquí](https://github.com/victorperalta93/califica-empresas).
+
+He implementado las peticiones básicas que aparecen en la descripción del ejercicio, para ponerlas a prueba he utilizado [Postman](https://www.getpostman.com/).
+
+Para describir cómo funciona el programa, vamos a seguir alguna de las peticiones implementadas, en concreto: `listar calificaciones`.
+Primero, enviamos la petición con postman:
+
+![imagen](img/t2/postman1.png)
+
+A continuación, el servidor recibe la petición:
+
+```
+app.get('/listar-datos',(req,res) =>{
+    calif.getAll(function(tabla){
+        res.send(tabla)
+    });
+});
+```
+Y realiza la petición a la base de datos.
+> Nota: callback sirve para recibir la respuesta de la base de datos, ya que la petición es asíncrona.
+
+
+```
+getAll(callback){
+    this.db.conn.all('SELECT * FROM calificaciones',(err, rows) => {
+        if (err) 
+            throw err;
+        else
+            return callback(rows);
+    });
+}
+```
