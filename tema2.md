@@ -310,3 +310,7 @@ cache:
   directories:
     - "node_modules"
 ```
+
+Ahora, cada vez que subamos algo a nuestro repositorio, se ejecutarán las pruebas pertinentes y Travis CI nos notificará con el resultado.
+
+![imagen](img/t2/travisci.png)
