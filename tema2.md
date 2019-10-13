@@ -292,3 +292,21 @@ Para crear un `package.json` en nuestro proyecto basta con ejecutar `npm init` y
 }
 ```
 Tiene como dependencias [express](https://expressjs.com/es/) y [sqlite](https://www.sqlite.org/index.html). Tambien aparece [nodemon](https://nodemon.io/) como depedencia de desarrollo, esto es útil cuando existen dependencias que solo son necesarias para el proceso de desarrollo, para añadir una dependencia de desarrollo se utiliza `npm install [paquete] --save-dev`.
+
+## Ejercicio 9
+
+Basta con crear una cuenta en Travis mediante tu cuenta de GitHub y hará la mayor parte de trabajo por nosotros, una vez dentro, activas el repositorio donde quieres tener integración contínua y listo.
+
+![imagen](img/t2/travis.png)
+
+## Ejercicio 10
+Para configurar la integración contínua con Travis CI necesitamos un archivo `.travis.yml` donde indicar su configuración. A continuación muestro el mío:
+
+```
+language: node_js
+node_js: 
+  - "stable"
+cache:
+  directories:
+    - "node_modules"
+```
