@@ -203,3 +203,92 @@ El resto de peticiones se tratan de forma similar, para ver el código completo 
 
 ## Ejercicio 6
 
+Primero, podemos utilizar `nvm ls` para ver que versión de node estamos utilizando y las disponibles en el proyecto:
+
+```
+$:nvm ls
+         v4.9.1
+       v12.11.1
+->     v10.16.3
+```
+
+La versión actual es `v10.16.3` y la ejecución con ella no da ningún problema:
+
+```
+$:npm run dev   
+
+> califica-empresas@1.0.0 dev 
+> nodemon server.js
+
+[nodemon] 1.19.3
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching dir(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node server.js`
+Servidor iniciado en puerto: 5000
+Conexión establecida con la base de datos.
+```
+
+> Nota: nodemon reinicia el servidor automaticamente cada vez que se actualiza alguno de sus archivos fuente. ¡Muy Util!
+
+Probemos ahora con la versión `v12.11.1`:
+
+```
+$:nvm use v12.11.1
+Now using node v12.11.1 (npm v6.11.3)
+$:npm run dev     
+
+> califica-empresas@1.0.0 dev
+> nodemon server.js
+
+[nodemon] 1.19.3
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching dir(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node server.js`
+internal/modules/cjs/loader.js:783
+    throw err;
+    ^
+
+Error: Cannot find module '/home/victorperalta/Dropbox/Ingenieria Informatica/IV/Practicas/califica-empresas/node_modules/sqlite3/lib/binding/node-v72-linux-x64/node_sqlite3.node'
+
+[nodemon] app crashed - waiting for file changes before starting...
+```
+
+Curiosamente, con una versión superior, ¡nuestro servidor no inicia!  
+Por estas cosas es tan valioso un gestor de versiones.
+
+## Ejercicio 7
+
+Para crear un `package.json` en nuestro proyecto basta con ejecutar `npm init` y se creará un archivo con las opciones básicas. A partir de aquí, cada vez que se utilice `npm install` se añadirá automaticamente una dependencia. Mi `package.json` del ejercicio 5 es el siguiente:
+
+```
+{
+  "name": "califica-empresas",
+  "version": "1.0.0",
+  "description": "Pequeño servicio web como parte de los ejercicios de la asignatura Infraestructura Virtual (19-20)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorperalta93/califica-empresas.git"
+  },
+  "author": "Victor Peralta",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/victorperalta93/califica-empresas/issues"
+  },
+  "homepage": "https://github.com/victorperalta93/califica-empresas#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite": "^3.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
+```
+Tiene como dependencias [express](https://expressjs.com/es/) y [sqlite](https://www.sqlite.org/index.html). Tambien aparece [nodemon](https://nodemon.io/) como depedencia de desarrollo, esto es útil cuando existen dependencias que solo son necesarias para el proceso de desarrollo, para añadir una dependencia de desarrollo se utiliza `npm install [paquete] --save-dev`.
