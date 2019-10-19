@@ -1,7 +1,7 @@
 # Ejercicios Tema 2
 ## Desarrollo basado en pruebas
 
-## Ejercicio 3
+## [Ejercicio 3](#Ejercicio3)
 He creado tests para Ruby con RSpec, en concreto para comprobar el resultado de una función que calcula el máximo común divisor mediante el algoritmo de Euclides. 
 
 Como dicta el desarrollo basado en pruebas, lo primero es realizar los tests que queremos aplicar:
@@ -299,7 +299,7 @@ Basta con crear una cuenta en Travis mediante tu cuenta de GitHub y hará la may
 
 ![imagen](img/t2/travis.png)
 
-## Ejercicio 10
+## [Ejercicio 10](#Ejercicio10)
 Para configurar la integración contínua con Travis CI necesitamos un archivo `.travis.yml` donde indicar su configuración. A continuación muestro el mío:
 
 ```
