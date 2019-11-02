@@ -67,3 +67,94 @@ Podemos utilizar la siguiente dirección para realizar la petición: `localhost:
 El servidor nos devuelve `Status: 200 OK`. Si ahora volvemos a consultar la base de datos:
 
 ![imagen](img/t3/res_ej2.png)
+
+## Ejercicio 3
+las pruebas creadas para las rutas de mi aplicación están en el archivo: [server.test.js](https://github.com/victorperalta93/califica-empresas/blob/master/test/server.test.js).
+
+```
+var request = require('supertest');
+app = require('../server.js');
+
+describe("POST empresa", function(){
+    it('deberia añadir una nueva empresa', function(done){
+        request(app)
+            .post('/empresa/nombre')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+});
+
+describe("GET empresas", function(){
+    it('deberia recibir una lista de las empresas', function(done){
+        request(app)
+            .get('/empresas')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+
+    it('deberia recibir todos los datos almacenados', function(done){
+        request(app)
+            .get('/datos')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+});
+
+describe("POST calificacion", function(){
+    it('deberia añadir una nueva calificación', function(done){
+        request(app)
+            .post('/calificacion/Juan/Northgate-Arinso/6')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+});
+
+describe("PUT calificacion", function(){
+    it('deberia actualizar una calificación existente', function(done){
+        request(app)
+            .put('/calificacion/Juan/Northgate-Arinso/8')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+});
+
+describe("DELETE calificacion", function(){
+    it('deberia eliminar una calificación existente', function(done){
+        request(app)
+            .delete('/calificacion/1')
+            .expect('Content-Type',/json/)
+            .expect(200,done);
+    });
+});
+
+```
+
+Una vez terminadas, basta con añadir una linea de test al `package.json` y ejecutarlo.
+
+```
+> califica-empresas@1.0.0 test /home/victorperalta/Dropbox/Ingenieria Informatica/IV/Practicas/califica-empresas
+> mocha
+
+
+
+Servidor iniciado en puerto: 5000
+Conexión establecida con la base de datos.
+  POST empresa
+    ✓ deberia añadir una nueva empresa
+
+  GET empresas
+    ✓ deberia recibir una lista de las empresas
+    ✓ deberia recibir todos los datos almacenados
+
+  POST calificacion
+    ✓ deberia añadir una nueva calificación
+
+  PUT calificacion
+    ✓ deberia actualizar una calificación existente
+
+  DELETE calificacion
+    ✓ deberia eliminar una calificación existente
+
+
+  6 passing (65ms)
+  ```
