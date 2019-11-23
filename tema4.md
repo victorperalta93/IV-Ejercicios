@@ -17,7 +17,7 @@ Una vez hecho esto, nuestra cuenta estará verificada y lista para usar!
 ## Ejercicio 2
 He realizado un despliegue de prueba en Heroku, para ello nos proporcionan un tutorial para los lenguajes más utilizados (en mi caso NodeJS). Puedes ver el tutorial en [este enlace](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
-En el tutorial enseñan a desplegar una aplicación, cambiar su configuración, configurar un sistema de logs, escalar la aplicación y añadir add-ons a la misma.
+En el tutorial enseñan a desplegar una aplicación, cambiar su configuración, configurar un sistema de logs, escalar la aplicación y añadir _add-ons_ a la misma.
 
 La aplicación desplegada se puede ver en el siguiente enlace:
 
@@ -29,3 +29,55 @@ Tiene las siguientes rutas configuradas:
 * __/cool__: muestra una cara aleatoria en formato ASCII
 * __/times__: muestra una serie de números controlados por una variable de entorno
 * __/db__: muestra información de una tabla en PostgreSQL
+
+
+## Ejercicio 3 
+Para este ejercicio voy a desplegar la aplicación desarrollada a lo largo del temario de teoría de la asignatura `califica-empresas`. Para ello hay que seguir los siguientes pasos:
+
+1. Añadir repositorio remoto de Heroku
+```
+heroku create
+```
+
+2. Añadir un `Procfile`, en mi caso su contenido es el siguiente:
+
+```
+web: node server.js
+```
+
+3. Añadir la versión de node en `package.json`:
+
+```
+  "engines": {
+    "node": "12.13"
+  },
+```
+
+4. Desplegar el código
+```
+git add .
+git commit -m "Añadido Procfile y versión de node"
+git push heroku master
+```
+
+Una vez hecho esto basta con acceder a la dirección del servicio para comprobar que funciona correctamente:
+
+![imagen](img/t4/califica-works.png)
+
+
+
+## Ejercicio 4
+Primero hay que instalar foreman:
+
+```
+gem install foreman
+```
+
+Una vez instalado se puede lanzar la aplicación en local con `foreman start web`:
+![imagen](img/t4/foreman.png)
+
+Me gustaría añadir que heroku también incluye la capacidad de lanzar tu web de forma local:
+
+```
+heroku local
+```
