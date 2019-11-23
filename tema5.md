@@ -30,14 +30,14 @@ lxc launch ubuntu:18.04 caja-ubuntu
 ```
 
 Puedes mostrar el estado de los contenedores de esta forma:
-![imagen](img/t4/lxc-list.png)
+![imagen](img/t5/lxc-list.png)
 
 Es posible arrancar una terminal bash en el contenedor:
-![imagen](img/t4/lxc-exec.png)
+![imagen](img/t5/lxc-exec.png)
 
 El ejercicio pide instalar 2 contenedores, uno utilizando la misma distribución que el host (Fedora) y otro utilizando cualquier otra distribución (en mi caso Ubuntu). Por tanto el siguiente paso es instalar un contenedor que utilice Fedora como distribución:
 
-![imagen](img/t4/lxc-done.png)
+![imagen](img/t5/lxc-done.png)
 
 Por último, podemos eliminar los contenedores:
 
