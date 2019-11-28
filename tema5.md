@@ -48,3 +48,38 @@ lxc delete caja-ubuntu pumped-baboon
 ```
 
 Por alguna razón no me dejaba detener los contenedores sin utilizar `--force`.
+
+## Ejercicio 3
+La instalación de Docker para Fedora tiene los siguientes pasos:
+1. Instala el paquete necesario para organizar tus repositorios en DNF:
+   ```
+    $ sudo dnf -y install dnf-plugins-core
+   ```
+2. Añade el repositorio __stable__:
+   ```
+   $ sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+   ```
+3. Instala _Docker Community_
+   ```
+    $ sudo dnf install docker-ce docker-ce-cli containerd.io
+   ```
+
+Una vez instalado tendrás que activar el servicio de Docker:
+```
+$ sudo systemctl start docker
+```
+
+Puedes utilizar el siguiente comando para comprobar que Docker funciona correctamente:
+```
+$ sudo docker run hello-world
+```
+
+> __Nota para usuarios de Fedora 31__  
+> Si eres tan impaciente como yo y has tomado la dudable decisión de actualizar la versión de Fedora en mitad del curso universitario, necesitarás dar un paso extra para que Docker funcione correctamente.
+> ```
+> sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
+> ```
+> Tras ejecutar el comando debes reiniciar la máquina. Puedes encontrar más información en [este issue](https://github.com/docker/cli/issues/297).
+
