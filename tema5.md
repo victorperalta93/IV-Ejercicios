@@ -131,3 +131,29 @@ sudo docker exec -it mongodock mongo
 ```
 
 ![imagen](img/t5/shell-mongo.png)
+
+## Ejercicio 5
+Primero, hay que ejecutar un _shell_ en el contenedor de ubuntu.
+
+```
+sudo docker run -i -t ubuntu /bin/bash
+```
+
+El ejercicio propone añadir un usuario:
+
+![imagen](img/t5/adduser.png)
+
+Para instalar Nginx primero hay que actualizar el contenedor para que detecte el paquete:
+
+```
+apt-get update
+apt-get upgrade
+```
+
+Por último se instala nginx
+
+```
+apt-get install nginx
+```
+
+![imagen](img/t5/nginx-v.png)
