@@ -157,3 +157,9 @@ apt-get install nginx
 ```
 
 ![imagen](img/t5/nginx-v.png)
+
+## Ejercicio 6
+Para crear una imagen persistente de un contenedor se utiliza `docker commit`.
+```
+sudo docker commit ID-CONTENEDOR nuevo-nombre
+```
