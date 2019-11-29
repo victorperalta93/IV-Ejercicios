@@ -163,3 +163,9 @@ Para crear una imagen persistente de un contenedor se utiliza `docker commit`.
 ```
 sudo docker commit ID-CONTENEDOR nuevo-nombre
 ```
+
+He realizado un commit del contenedor del ejercicio anterior con nginx instalado.
+
+![imagen](img/t5/docker-commit.png)
+
+## Ejercicio 7
