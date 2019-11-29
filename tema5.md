@@ -77,9 +77,57 @@ $ sudo docker run hello-world
 ```
 
 > __Nota para usuarios de Fedora 31__  
-> Si eres tan impaciente como yo y has tomado la dudable decisión de actualizar la versión de Fedora en mitad del curso universitario, necesitarás dar un paso extra para que Docker funcione correctamente.
+> Si eres tan impaciente como yo y has tomado la dudable decisión de actualizar la versión de Fedora en mitad del curso universitario, necesitarás dar un paso extra para que Docker funcione correctamente ya que Fedora 31 ahora utiliza `cgroupsV2` por defecto y no está aún soportado en Docker, por tanto debes desactivarlo.
 > ```
 > sudo grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
 > ```
 > Tras ejecutar el comando debes reiniciar la máquina. Puedes encontrar más información en [este issue](https://github.com/docker/cli/issues/297).
 
+## Ejercicio 4
+Se propone instalar varias imágenes de Docker, en este ejercicio voy a mostrar 2 imágenes que se pueden encontrar en [Docker Hub](https://hub.docker.com/).
+
+Primero se propone instalar alguna imagen disponible de Ubuntu, en mi caso he elegido [ceregousa/ubuntu-git](https://hub.docker.com/r/ceregousa/ubuntu-git), dicha imagen ofrece un contenedor con Ubuntu y git instalado.
+
+Para descargar el contenedor:
+
+```
+sudo docker pull ceregousa/ubuntu-git
+```
+
+A continuación muestro una pequeña interacción con el contenedor para comprobar que git funciona correctamente:
+
+![imagen](img/t5/docker-ubuntugit.png)
+
+CentOS distribuye una imagen oficial en Docker Hub y por tanto voy a utilizar esa.
+
+```
+sudo docker pull centos
+```
+
+Se puede arrancar una terminal en el contenedor y comprobar la versión de CentOS:
+ 
+![imagen](img/t5/centos-release.png)
+
+Por último se propone buscar e instalar una imagen que incluya MongoDB, igual que con CentOS, el equipo de MongoDB provee una imagen oficial.
+
+```
+sudo docker pull mongo
+```
+
+Parece que nos ofrecen la versión 4.2.1 de MongoDB en un contenedor Linux con Debian Buster:
+
+![imagen](img/t5/mongo-version.png)
+
+Para probar a entrar en el shell de mongo primero hay que arrancar el contenedor:
+
+```
+sudo docker run -it -p 28000:27017 --name mongodock mongo
+```
+
+A continuación abrimos un shell:
+
+```
+sudo docker exec -it mongodock mongo
+```
+
+![imagen](img/t5/shell-mongo.png)
