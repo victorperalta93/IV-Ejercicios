@@ -169,3 +169,43 @@ He realizado un commit del contenedor del ejercicio anterior con nginx instalado
 ![imagen](img/t5/docker-commit.png)
 
 ## Ejercicio 7
+He creado un Dockerfile para mi aplicación [califica-empresas](https://github.com/victorperalta93/califica-empresas).
+
+```
+FROM node
+
+WORKDIR /califica-empresas
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["npm","start"]
+```
+Este Dockerfile sigue los siguientes pasos:
+1. Utiliza el contenedor oficial de nodeJS
+2. La aplicación se copia en el directorio `/califica-empresas`
+3. Se instalan las dependencias de la aplicación
+4. Se copia todo el contenido del directorio de la aplicación al directorio de trabajo del contenedor
+5. Se define el puerto en el que la aplicación del contenedor va a escuchar, en mi caso puerto 5000
+6. Se ejecuta `npm start` para arrancar el servicio
+
+Una vez definido el `Dockerfile` en el directorio de la aplicación hay que construir la imagen.
+
+```
+sudo docker image build -t victorperalta93/califica-empresas .
+```
+
+Al arrancar la imagen es importante definir `-p 80:5000` que hará que el puerto 5000 del contenedor se redirija al puerto 80 del host.
+
+```
+sudo docker container run -it -p 80:5000 victorperalta93/califica-empresas
+```
+
+En `localhost` deberiamos poder acceder al servicio:
+
+![imagen](img/t5/calif-works.png)
