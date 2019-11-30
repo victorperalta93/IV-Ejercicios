@@ -209,3 +209,20 @@ sudo docker container run -it -p 80:5000 victorperalta93/califica-empresas
 En `localhost` deberiamos poder acceder al servicio:
 
 ![imagen](img/t5/calif-works.png)
+
+## Ejercicio 8
+He creado un nuevo contenedor en [DockerHub](https://hub.docker.com) que se construye automáticamente cada vez que el repositorio del proyecto en GitHub se actualiza.
+
+![imagen](img/t5/docker-califica-empresas.png)
+
+He creado un droplet en [DigitalOcean](https://www.digitalocean.com/) para alojar el contenedor de Docker. 
+
+![imagen](img/t5/do-droplet.png)
+
+Una vez creado he accedido al servidor por SSH con la IPv4 que proporcionan, he clonado el repositorio de git y he arrancado el contenedor.
+
+![imagen](img/t5/po-docker-run.png)
+
+Por último, si accedemos a la ip del servidor deberíamos poder utilizar el servicio.
+
+![imagen](img/t5/po-docker-works.png)
