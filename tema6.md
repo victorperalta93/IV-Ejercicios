@@ -48,3 +48,5 @@ He instalado una máquina virtual de Ubuntu en Azure y he desplegado la aplicaci
    ```
     az vm deallocate --name miUbuntuVirtual --resource-group IV
    ```
+
+He seguido los [apuntes de la asignatura](https://jj.github.io/IV/documentos/temas/Gestion_de_configuraciones) y [este tutorial](https://docs.microsoft.com/es-es/azure/virtual-machines/linux/quick-create-cli) para realizar este ejercicio.
