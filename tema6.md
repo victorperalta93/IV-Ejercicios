@@ -49,4 +49,27 @@ He instalado una máquina virtual de Ubuntu en Azure y he desplegado la aplicaci
     az vm deallocate --name miUbuntuVirtual --resource-group IV
    ```
 
-He seguido los [apuntes de la asignatura](https://jj.github.io/IV/documentos/temas/Gestion_de_configuraciones) y [este tutorial](https://docs.microsoft.com/es-es/azure/virtual-machines/linux/quick-create-cli) para realizar este ejercicio.
+He seguido [este tutorial](https://docs.microsoft.com/es-es/azure/virtual-machines/linux/quick-create-cli) para realizar este ejercicio.
+
+## Ejercicio 4
+Se propone instalar una máquina virtual Debian utilizando Vagrant, para ello hay que seguir los siguientes pasos:
+1. Crear el `Vagrantfile`:
+    ```
+    vagrant init debian/jessie64
+    ```
+2. Lanzar la máquina virtual:
+    ```
+    vagrant up
+    ```
+
+Los pasos anteriores se muestran en la siguiente captura:
+
+![imagen](img/t6/vagrant-debian.png)
+
+3. Por último, para conectar con la máquina:
+   ```
+    vagrant ssh
+   ```
+
+La siguiente captura muestra la conexión por ssh y la versión de Debian instalada:
+![imagen](img/t6/vagrant-debian-ssh.png)
